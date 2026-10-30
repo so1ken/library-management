@@ -1,0 +1,45 @@
+plugins {
+    id 'application'
+}
+
+group = 'ru.library.management'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.7.14'
+    implementation 'com.zaxxer:HikariCP:7.1.0'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.17'
+    implementation 'org.flywaydb:flyway-core:13.11.1'
+    implementation 'org.flywaydb:flyway-database-postgresql:13.11.1'
+
+    testImplementation platform('org.junit:junit-bom:5.14.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+application {
+    mainClass = 'ru.library.management.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+
+tasks.named('run', JavaExec) {
+    standardInput = System.in
+}
