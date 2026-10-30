@@ -161,7 +161,6 @@ library-management/
 ├── docs/
 │   ├── ER.png                         # ER-диаграмма БД
 │   ├── class-diagram.png              # диаграмма классов
-│   └── borrow-sequence-diagram.mmd    # диаграмма последовательности
 ├── gradle/wrapper/                    # Gradle Wrapper
 ├── src/
 │   ├── main/
